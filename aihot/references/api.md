@@ -161,5 +161,8 @@ v1 只承诺 `24h` 和 `7d` 两个服务端窗口：
 
 - 今天、过去 24 小时：用 `24h`。
 - 最近、最近一周：用 `7d`。
-- 用户要 2 天、3 天等其它七天内范围：取 `7d` 后按 `publishedAt` 收窄。
+- 用户要 2 天、3 天等其它七天内范围：取 `7d` 后本地收窄。**收窄用的字段必须与请求的 `by` 口径一致**，否则会切掉服务端本来算在窗口内的条目：
+  - 默认 `by=timeline`：用时间轴值——`publishedAt` 为空取 `discoveredAt`；`discoveredAt - publishedAt > 72 小时`（历史回填）取 `publishedAt`；其余取 `discoveredAt`。
+  - 显式 `by=published`：才直接用 `publishedAt`。
+  - 拿 `publishedAt` 去收窄默认口径，会把官方博客、公众号、HuggingFace Daily 这类慢推信源整批误删（见上方「时间口径」）。
 - 超过 7 天的普通公开池不承诺可用；不要用 selected snapshot 冒充历史搜索。
