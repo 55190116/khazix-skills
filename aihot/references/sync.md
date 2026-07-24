@@ -25,7 +25,7 @@
 
 ## 恢复
 
-changes 返回 `400` 或 `409` 且 Problem `code=snapshot_required` 时：
+changes 返回 `409` 且 Problem `code=snapshot_required` 时：
 
 1. 停止重试旧 cursor。
 2. 用原来的字段模式重新请求一次 snapshot。

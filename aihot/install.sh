@@ -33,6 +33,10 @@ Examples:
 
 The installer never uses sudo. It downloads the complete runtime package,
 validates every SHA-256, then replaces one explicit target directory.
+
+If an older AI HOT Skill ran this script without a target, do not guess or
+retry with sudo. Open https://aihot.virxact.com/aihot-skill/README.md and give
+its recommended update prompt to the Agent that owns the current Skill folder.
 EOF
 }
 
