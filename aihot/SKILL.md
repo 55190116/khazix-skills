@@ -86,4 +86,4 @@ metadata:
 - 标题默认链接 `links.aihot`；只有用户明确要出处时再附 `links.original`。
 - 日报 sections／flashes 的 `links.aihot` 可能为空；此时使用 `links.original`，不要寻找旧字段 `permalink` 或 `sourceUrl`。
 - 不展示 endpoint、cursor、ETag、User-Agent、JSON 字段名等实现细节。
-- 对外发布或接入二次产品时保留响应中的 AI HOT attribution 与 canonical；第三方原文版权仍归原作者。缓存、商业增值和再分发边界见 `https://aihot.virxact.com/about#public-integration-terms`。
+- 对外发布或接入二次产品时保留响应中的 AI HOT attribution 与 canonical；第三方原文版权仍归原作者。缓存、商业增值和再分发边界见 `https://aihot.virxact.com/terms`。
