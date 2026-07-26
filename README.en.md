@@ -167,26 +167,33 @@ Lets any SKILL.md-supporting agent pull AI HOT's daily report and all AI news fr
 
 - Pull today's or a specific date's AI HOT daily report (pre-packaged by topic)
 - Pull the selected items stream (daily editorial candidate pool)
+- **See what's hottest right now** (ranked by heat, not reverse-chronological)
 - Pull by category (models / products / industry / papers / tips)
-- Pull by time window (last N days)
+- Pull by time window (past 24 hours and last 7 days are natively supported)
 - Keyword / company / topic search ("recent OpenAI releases", "Sora-related", "RAG papers")
+- **Mirror the entire current selection locally**, then receive only the changes
 
 **How to trigger** (Chinese — the underlying API is Chinese-curated)
 
 ```
 今天 AI 圈有什么新东西
+现在 AI 圈最热的事件是什么
 看一下 5 月 6 号的 AI 日报
 最近一周的 AI 论文
-看下精选条目
 最近 OpenAI 有什么发布
+把 AI HOT 当前全部精选同步到本地
 ```
 
-**🌐 Cross-platform**: Claude Code · Codex CLI · Cursor · Gemini CLI · OpenCode · Cline · Windsurf
+**🌐 Cross-platform**: Claude Code · Codex CLI · Gemini CLI · GitHub Copilot · OpenCode · Cursor · Cline · Windsurf
 
-**🇨🇳 China-friendly direct install** (no GitHub access needed):
+**🇨🇳 China-friendly direct install** (no GitHub access needed). The installer never guesses your platform — name the target:
 
 ```
-curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh | bash
+# Claude Code
+bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target claude
+
+# Codex / Gemini CLI / Copilot / OpenCode (shared ~/.agents/skills/aihot)
+bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target agents
 ```
 
 → [SKILL.md](./aihot/SKILL.md) · [aihot.virxact.com](https://aihot.virxact.com) · [Integration guide](https://aihot.virxact.com/agent)

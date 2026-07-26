@@ -167,26 +167,33 @@ storage analysis
 
 - 拉今日 / 指定日期的 AI HOT 日报（按主题打包好的成品）
 - 拉精选条目流（每日精编候选池）
+- **看当前最热事件**（按热度排，不是按时间倒序）
 - 按分类拉条目（模型 / 产品 / 行业 / 论文 / 技巧）
-- 按时间窗口拉（最近 N 天）
+- 按时间窗拉（原生支持过去 24 小时和最近 7 天）
 - 关键词 / 公司 / 主题搜索（"OpenAI 最近发的"、"Sora 相关"、"RAG 论文"）
+- **把当前全部精选同步到本地**，之后只接收变化
 
 **怎么触发**
 
 ```
 今天 AI 圈有什么新东西
+现在 AI 圈最热的事件是什么
 看一下 5 月 6 号的 AI 日报
 最近一周的 AI 论文
-看下精选条目
 最近 OpenAI 有什么发布
+把 AI HOT 当前全部精选同步到本地
 ```
 
-**🌐 跨平台**：Claude Code · Codex CLI · Cursor · Gemini CLI · OpenCode · Cline · Windsurf
+**🌐 跨平台**：Claude Code · Codex CLI · Gemini CLI · GitHub Copilot · OpenCode · Cursor · Cline · Windsurf
 
-**🇨🇳 国内直链**（无需翻墙）：
+**🇨🇳 国内直链**（无需翻墙）。安装器不猜平台，要指明装给谁：
 
 ```
-curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh | bash
+# Claude Code
+bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target claude
+
+# Codex / Gemini CLI / Copilot / OpenCode（共用 ~/.agents/skills/aihot）
+bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target agents
 ```
 
 → [SKILL.md](./aihot/SKILL.md) · [aihot.virxact.com](https://aihot.virxact.com) · [接入指南](https://aihot.virxact.com/agent)
