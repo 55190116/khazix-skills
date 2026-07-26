@@ -26,7 +26,7 @@ Every skill here is a structured instruction set that agents load directly. Foll
 
 | Name | One-liner | Article |
 |---|---|---|
-| 🧭 [**leader**](#-leader) | You give it a vague idea; it hands back a task book an agent can run to completion on its own — with every shortcut nailed shut | — |
+| 🧭 [**leader**](#-leader) | Turns a vague idea into a clearly defined **goal** an agent can run for hours, on its own, to completion | — |
 | 💽 [**storage-analyzer**](#-storage-analyzer) | One sentence to scan your whole Mac / Windows drive — three-tier cleanup plan, one-click trash from the browser | [Article (Chinese)](https://mp.weixin.qq.com/s/NyOMIlOD986OC4SI9vmxlA) |
 | 🔥 [**aihot**](#-aihot-ai-hot-news-query) | Lets your agent pull AI HOT's daily report and all AI news from aihot.virxact.com with one Chinese sentence — no API key | [aihot.virxact.com](https://aihot.virxact.com) |
 | 🧹 [**neat-freak**](#-neat-freak) | After a session, run `/neat` to reconcile docs, CLAUDE.md, and agent memory, then audit whether project rules are actually followed | [Article (Chinese)](https://mp.weixin.qq.com/s/tg1wd-iN2gWHWhXdY0faeg) |
@@ -60,19 +60,21 @@ Agent doesn't support Skills? Download the `SKILL.md` from the skill's directory
 
 > *"You said 'make the tests green.' The cheapest way to do that isn't fixing the code — it's deleting the tests."*
 
-Tell it a half-formed idea. It goes into your codebase and measures things itself, asks you at most 5 questions, then hands back a **task book**. Paste that into goal mode (`/goal` in Claude Code) and the agent runs to completion on its own.
+**It solves exactly one thing: defining the goal.**
 
-You copy-paste exactly once.
+It turns that half-formed idea in your head — the one you haven't fully thought through yourself — into a goal task book. Paste it into goal mode (`/goal` in Claude Code, goal mode in Codex) and the agent runs for hours, unattended, to completion. You copy-paste exactly once.
 
-**Why this exists**
+**Why "goal"**
 
-I habitually fire off a few `/goal` runs before bed and review them in the morning. Six or seven times out of ten, the work had to be redone.
+The unit of human–AI collaboration keeps getting bigger: it used to be one exchange, then one task, and in 2026 it's one goal — you hand over a goal and it decomposes the work, calls its own tools, verifies itself, retries its own failures, and runs all night. You just inspect the result.
 
-You say "fix these two failing tests." Next morning the suite is green — because it deleted the tests. Or it kept them and rewrote the assertion from "should equal 100" to "should equal whatever it currently returns." The green light is genuinely green. It's also the exam equivalent of editing the answer key to match your answers.
+But once an AI really can run all night, a problem you used to catch in the moment turns lethal: **is your goal written correctly?** A short task that goes off course, you glance at it and fix it. A long-horizon one has been sprinting the wrong way for eight hours by the time you wake up. The harder it works, the more completely it wastes.
 
-This isn't the model being bad. **A rational executor facing a leaky goal will always take the leak — the leak is the optimal solution.** The problem isn't the AI. It's the goal you wrote.
+**The most important part of a goal is what it forbids**
 
-Economists call it Goodhart's Law: when a measure becomes a target, it stops being a good measure. Measure green lights, and you'll get green lights produced the cheapest way available. And handing work to an AI *is* managing: you say one sentence, it goes off to work, you're absent while it does, you inspect at delivery.
+The key words in Kennedy's moon speech aren't "landing a man on the Moon." They're what follows: **and returning him safely to the Earth**. Those few extra words deleted the cheapest solution on the table — the one-way ticket.
+
+The goal tells the AI where to go; the harness tells it which roads are off limits. **A goal without a harness will always lose to a shortcut you didn't think of.**
 
 **The seven questions (the method)**
 
@@ -90,28 +92,20 @@ Setting a goal for an AI is like sending a ship to sea. Seven things you must se
 
 Plus question zero: **did you survey this chart yourself, or was it handed to you?** Which is why it always runs the commands by hand before writing a word — the command in your README may not exist.
 
-**What it nails shut for you**
+**How to use it**
 
-- **Cheating the metric** — skipping tests, loosening assertions, mocking the thing under test, `|| true`: all named and banned; the grading files (tests, CI config) are fingerprinted, and changing them fails the task
-- **Alarms that don't ring** — it must break something on purpose, prove the check goes red, and paste the output. The test is one question: "if this broke, who would know?" If the answer is "nobody," you need this
-- **Beating a dead horse** — same check fails 3 times, move on; if the result is worse than the baseline, roll back. "Didn't finish, but explained why" passes; "finished, but made it worse" doesn't
-- **Hallucinated commands** — every command in the book was run by hand, not copied out of a README
-
-**Research tasks switch modes automatically**
-
-When you want an AI to investigate, evaluate options, or answer "should we do X," hard numeric targets just buy you padded answers. It switches: cap the number of findings, require a reproducible source for each — and **proving a path is a dead end counts as done**. A chart showing there's no passage west is worth as much as the spice.
-
-**Triggers**
+Tell it your idea (any of the lines below triggers it). It measures and researches first, asks you at most 5 questions that genuinely need your call, then writes the book. About 12 minutes end to end.
 
 ```
 write a goal for the agent
-turn this into a task book
 break this goal down for me
-let the agent run this project on its own
 write me a /goal prompt
+let the agent run this project on its own
 ```
 
-**🌐 Cross-platform**: output is plain Markdown any agent can read. With goal mode (`/goal` etc.) it runs unattended; without one, just paste and send.
+With the book in hand, plan with a strong planning model and execute with a strong long-horizon one — I use Claude Fable 5 to plan and GPT-5.6 Sol to execute.
+
+**🌐 Cross-platform**: output is plain Markdown any agent can read. With goal mode it runs unattended; without one, just paste and send.
 
 → [SKILL.md](./leader/SKILL.md)
 
