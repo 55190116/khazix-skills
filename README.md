@@ -103,9 +103,7 @@ Goal 告诉 AI 往哪走，Harness 告诉它哪些路不许走。**没有 Harnes
 让 agent 自己跑这个项目
 ```
 
-拿到任务书后，推荐用规划强的模型出目标、执行强的模型跑长程——我自己是 Claude Fable 5 规划 + GPT-5.6 Sol 执行。国产的话 Kimi K3 规划、GLM-5.2 执行也不错。
-
-**🌐 跨平台**：产出是纯 Markdown，任何 agent 都读得懂。有目标模式的粘进去自动跑到完成，没有的直接粘贴发送一样用。
+产出是纯 Markdown，没有目标模式的 Agent 直接粘贴发送也一样用。拿到任务书后推荐用规划强的模型出目标、执行强的模型跑长程——我自己是 Claude Fable 5 规划 + GPT-5.6 Sol 执行，国产的 Kimi K3 规划、GLM-5.2 执行也不错。
 
 → [SKILL.md](./leader/SKILL.md)
 
@@ -137,7 +135,7 @@ CleanMyMac 是个写死规则的软件，扫到一个 3.8G 的 Chrome 文件夹�
 
 全程只读扫描，绝不擅自动手。删除操作必须你在浏览器上点按钮 + 浏览器弹框二次确认才执行。本地服务跑在 127.0.0.1 + 随机端口 + token，安全模型上三套白名单分级（绿灯能删、橙灯只能移废纸篓、红灯只能打开）。
 
-**🌐 跨平台**：macOS 完整实测；Windows 代码就绪（多盘符已支持），首次用建议留个心眼
+macOS 完整实测；Windows 代码就绪（多盘符已支持），首次用建议留个心眼。
 
 **怎么触发**
 
@@ -184,18 +182,6 @@ storage analysis
 把 AI HOT 当前全部精选同步到本地
 ```
 
-**🌐 跨平台**：Claude Code · Codex CLI · Gemini CLI · GitHub Copilot · OpenCode · Cursor · Cline · Windsurf
-
-**🇨🇳 国内直链**（无需翻墙）。安装器不猜平台，要指明装给谁：
-
-```
-# Claude Code
-bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target claude
-
-# Codex / Gemini CLI / Copilot / OpenCode（共用 ~/.agents/skills/aihot）
-bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target agents
-```
-
 → [SKILL.md](./aihot/SKILL.md) · [aihot.virxact.com](https://aihot.virxact.com) · [接入指南](https://aihot.virxact.com/agent)
 
 </td></tr>
@@ -240,10 +226,6 @@ bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target age
 
 纯代码任务、整理数据 / 周报这类请求不会触发它——它只管项目知识收尾。
 
-**🌐 跨平台**：遵循 Agent Skills 开放标准，Claude Code、Codex、Qoder、Kimi Code、iFlow、CodeBuddy、Cursor 等都能装；不支持 Skill 的 Agent 把 `SKILL.md` 当规则文件引用即可。
-
-[![Tessl](https://img.shields.io/badge/Tessl-0.1.1-3B82F6?style=flat-square)](https://tessl.io/registry/khazix-skills/neat-freak)
-
 → [SKILL.md](./neat-freak/SKILL.md) · [公众号讲解](https://mp.weixin.qq.com/s/tg1wd-iN2gWHWhXdY0faeg)
 
 </td></tr>
@@ -273,8 +255,14 @@ bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target age
 - 单纯查个名词解释 — 那种问题用普通对话就行，杀鸡用牛刀
 - 写公众号文章 — 那个用下面的 khazix-writer
 
-[![ClawHub](https://img.shields.io/badge/ClawHub-v1.0.0-EC4899?style=flat-square)](https://clawhub.ai)
-[![Tessl](https://img.shields.io/badge/Tessl-published-3B82F6?style=flat-square)](https://tessl.io/registry/khazix-skills/hv-analysis)
+**怎么触发**
+
+```
+研究一下 Cursor 这家公司
+帮我做个竞品分析
+这个产品到底是怎么回事
+帮我做个 deep research
+```
 
 → [SKILL.md](./hv-analysis/SKILL.md) · [公众号讲解](https://mp.weixin.qq.com/s/Y_uRMYBmdLWUPnz_ac7jWA)
 
@@ -304,8 +292,14 @@ bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target age
 - 四层自检体系（结构、节奏、内容、文字）
 - 一套风格示例库（可以让 AI 直接对照）
 
-[![ClawHub](https://img.shields.io/badge/ClawHub-v1.0.0-EC4899?style=flat-square)](https://clawhub.ai)
-[![Tessl](https://img.shields.io/badge/Tessl-0.1.1-3B82F6?style=flat-square)](https://tessl.io/registry/khazix-skills/khazix-writer)
+**怎么触发**
+
+```
+帮我写篇文章
+把这个素材写成长文
+按我的风格写一下
+帮我续写
+```
 
 → [SKILL.md](./khazix-writer/SKILL.md) · [公众号讲解](https://mp.weixin.qq.com/s/AtxGrii_K-nzkwUM9SNhEg)
 

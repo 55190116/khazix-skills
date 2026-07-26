@@ -103,9 +103,7 @@ write me a /goal prompt
 let the agent run this project on its own
 ```
 
-With the book in hand, plan with a strong planning model and execute with a strong long-horizon one — I use Claude Fable 5 to plan and GPT-5.6 Sol to execute.
-
-**🌐 Cross-platform**: output is plain Markdown any agent can read. With goal mode it runs unattended; without one, just paste and send.
+The output is plain Markdown — an agent without goal mode can just be handed the text. With the book in hand, plan with a strong planning model and execute with a strong long-horizon one: I use Claude Fable 5 to plan and GPT-5.6 Sol to execute.
 
 → [SKILL.md](./leader/SKILL.md)
 
@@ -137,7 +135,7 @@ This skill is agent-driven. Every entry comes with **specific path + content cla
 
 Scan phase is **read-only**, period. Deletions require **two clicks** — button on the page, then a browser confirm dialog. The local server runs on 127.0.0.1 + random port + token, with three whitelists (green = can rm; yellow = trash only; both = open).
 
-**🌐 Cross-platform**: macOS fully tested; Windows code-ready (multi-drive supported), worth eyeballing on first run
+macOS is fully tested; Windows is code-ready (multi-drive supported) but worth eyeballing on first run.
 
 **How to trigger**
 
@@ -184,18 +182,6 @@ Lets any SKILL.md-supporting agent pull AI HOT's daily report and all AI news fr
 把 AI HOT 当前全部精选同步到本地
 ```
 
-**🌐 Cross-platform**: Claude Code · Codex CLI · Gemini CLI · GitHub Copilot · OpenCode · Cursor · Cline · Windsurf
-
-**🇨🇳 China-friendly direct install** (no GitHub access needed). The installer never guesses your platform — name the target:
-
-```
-# Claude Code
-bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target claude
-
-# Codex / Gemini CLI / Copilot / OpenCode (shared ~/.agents/skills/aihot)
-bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) --target agents
-```
-
 → [SKILL.md](./aihot/SKILL.md) · [aihot.virxact.com](https://aihot.virxact.com) · [Integration guide](https://aihot.virxact.com/agent)
 
 </td></tr>
@@ -240,10 +226,6 @@ clean handoff for the new teammate     # handoff intent
 
 Pure coding tasks and tidying data / reports won't trigger it — it only handles project-knowledge closeout.
 
-**🌐 Cross-platform**: follows the Agent Skills open standard — Claude Code, Codex, Qoder, Kimi Code, iFlow, CodeBuddy, Cursor, and more. No Skills support? Use `SKILL.md` as a rule file.
-
-[![Tessl](https://img.shields.io/badge/Tessl-0.1.1-3B82F6?style=flat-square)](https://tessl.io/registry/khazix-skills/neat-freak)
-
 → [SKILL.md](./neat-freak/SKILL.md) · [Article (Chinese)](https://mp.weixin.qq.com/s/tg1wd-iN2gWHWhXdY0faeg)
 
 </td></tr>
@@ -273,8 +255,14 @@ The output is a **typeset PDF research report**, 10,000–30,000 words.
 - A simple definition lookup — overkill, just ask in regular chat
 - Writing a long-form article — that's [khazix-writer](#-khazix-writer)'s job
 
-[![ClawHub](https://img.shields.io/badge/ClawHub-v1.0.0-EC4899?style=flat-square)](https://clawhub.ai)
-[![Tessl](https://img.shields.io/badge/Tessl-published-3B82F6?style=flat-square)](https://tessl.io/registry/khazix-skills/hv-analysis)
+**How to trigger** (Chinese)
+
+```
+研究一下 Cursor 这家公司
+帮我做个竞品分析
+这个产品到底是怎么回事
+帮我做个 deep research
+```
 
 → [SKILL.md](./hv-analysis/SKILL.md) · [Article (Chinese)](https://mp.weixin.qq.com/s/Y_uRMYBmdLWUPnz_ac7jWA)
 
@@ -306,8 +294,14 @@ You want "good general writing." This skill takes a position. It **refuses** cor
 - A four-layer self-check system (structure, rhythm, content, language)
 - A curated style example library the AI can match against
 
-[![ClawHub](https://img.shields.io/badge/ClawHub-v1.0.0-EC4899?style=flat-square)](https://clawhub.ai)
-[![Tessl](https://img.shields.io/badge/Tessl-0.1.1-3B82F6?style=flat-square)](https://tessl.io/registry/khazix-skills/khazix-writer)
+**How to trigger** (Chinese)
+
+```
+帮我写篇文章
+把这个素材写成长文
+按我的风格写一下
+帮我续写
+```
 
 → [SKILL.md](./khazix-writer/SKILL.md) · [Article (Chinese)](https://mp.weixin.qq.com/s/AtxGrii_K-nzkwUM9SNhEg)
 
