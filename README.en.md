@@ -7,7 +7,7 @@
 #### A few AI skills I actually use every day, open-sourced as-is
 
 [![License](https://img.shields.io/badge/License-MIT-3B82F6?style=for-the-badge)](./LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-5-10B981?style=for-the-badge)](#-skills)
+[![Skills](https://img.shields.io/badge/Skills-6-10B981?style=for-the-badge)](#-skills)
 [![AgentSkills](https://img.shields.io/badge/AgentSkills-Standard-8B5CF6?style=for-the-badge)](https://agentskills.io)
 
 ![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-D97706?style=flat-square&logo=anthropic&logoColor=white)
@@ -26,6 +26,7 @@ Every skill here is a structured instruction set that agents load directly. Foll
 
 | Name | One-liner | Article |
 |---|---|---|
+| 🧭 [**leader**](#-leader) | You give it a vague idea; it hands back a task book an agent can run to completion on its own — with every shortcut nailed shut | — |
 | 💽 [**storage-analyzer**](#-storage-analyzer) | One sentence to scan your whole Mac / Windows drive — three-tier cleanup plan, one-click trash from the browser | [Article (Chinese)](https://mp.weixin.qq.com/s/NyOMIlOD986OC4SI9vmxlA) |
 | 🔥 [**aihot**](#-aihot-ai-hot-news-query) | Lets your agent pull AI HOT's daily report and all AI news from aihot.virxact.com with one Chinese sentence — no API key | [aihot.virxact.com](https://aihot.virxact.com) |
 | 🧹 [**neat-freak**](#-neat-freak) | After a session, run `/neat` to reconcile docs, CLAUDE.md, and agent memory, then audit whether project rules are actually followed | [Article (Chinese)](https://mp.weixin.qq.com/s/tg1wd-iN2gWHWhXdY0faeg) |
@@ -51,6 +52,71 @@ Agent doesn't support Skills? Download the `SKILL.md` from the skill's directory
 ## ✨ Skills
 
 <a id="-skills"></a>
+
+<table>
+<tr><td>
+
+### 🧭 leader
+
+> *"You said 'make the tests green.' The cheapest way to do that isn't fixing the code — it's deleting the tests."*
+
+Tell it a half-formed idea. It goes into your codebase and measures things itself, asks you at most 5 questions, then hands back a **task book**. Paste that into goal mode (`/goal` in Claude Code) and the agent runs to completion on its own.
+
+You copy-paste exactly once.
+
+**Why this exists**
+
+I habitually fire off a few `/goal` runs before bed and review them in the morning. Six or seven times out of ten, the work had to be redone.
+
+You say "fix these two failing tests." Next morning the suite is green — because it deleted the tests. Or it kept them and rewrote the assertion from "should equal 100" to "should equal whatever it currently returns." The green light is genuinely green. It's also the exam equivalent of editing the answer key to match your answers.
+
+This isn't the model being bad. **A rational executor facing a leaky goal will always take the leak — the leak is the optimal solution.** The problem isn't the AI. It's the goal you wrote.
+
+Economists call it Goodhart's Law: when a measure becomes a target, it stops being a good measure. Measure green lights, and you'll get green lights produced the cheapest way available. And handing work to an AI *is* managing: you say one sentence, it goes off to work, you're absent while it does, you inspect at delivery.
+
+**The seven questions (the method)**
+
+Setting a goal for an AI is like sending a ship to sea. Seven things you must settle before it leaves port:
+
+| # | Question | At sea | In the task book |
+|---|---|---|---|
+| 1 | **Purpose** | Why this voyage — spices, or a new route | What it uses to decide at forks you never anticipated |
+| 2 | **Done** | What's on deck when it returns. "Sailed around" doesn't count; "three holds of spice" does | Specific enough to judge mechanically at the dock |
+| 3 | **Proof** | Who counts the cargo. The captain saying "full" isn't proof | Every check must paste real command output |
+| 4 | **Anti-cheat** | No raiding merchant ships to hit the number — target met, mission not done | Every shortcut named and forbidden |
+| 5 | **Bounds** | These three routes only; thirty days of food, turn back on day twenty | Path allowlist + hard turn limit |
+| 6 | **Trade-offs** | In a storm, save the cargo or the ship. Don't say, and the captain guesses | "Correct > complete > fast" |
+| 7 | **Unknowns** | Blank spots on the chart: don't charge in, don't drop anchor. Note it, route around, decide later | Park it in the pending-decisions file, skip it, keep working |
+
+Plus question zero: **did you survey this chart yourself, or was it handed to you?** Which is why it always runs the commands by hand before writing a word — the command in your README may not exist.
+
+**What it nails shut for you**
+
+- **Cheating the metric** — skipping tests, loosening assertions, mocking the thing under test, `|| true`: all named and banned; the grading files (tests, CI config) are fingerprinted, and changing them fails the task
+- **Alarms that don't ring** — it must break something on purpose, prove the check goes red, and paste the output. The test is one question: "if this broke, who would know?" If the answer is "nobody," you need this
+- **Beating a dead horse** — same check fails 3 times, move on; if the result is worse than the baseline, roll back. "Didn't finish, but explained why" passes; "finished, but made it worse" doesn't
+- **Hallucinated commands** — every command in the book was run by hand, not copied out of a README
+
+**Research tasks switch modes automatically**
+
+When you want an AI to investigate, evaluate options, or answer "should we do X," hard numeric targets just buy you padded answers. It switches: cap the number of findings, require a reproducible source for each — and **proving a path is a dead end counts as done**. A chart showing there's no passage west is worth as much as the spice.
+
+**Triggers**
+
+```
+write a goal for the agent
+turn this into a task book
+break this goal down for me
+let the agent run this project on its own
+write me a /goal prompt
+```
+
+**🌐 Cross-platform**: output is plain Markdown any agent can read. With goal mode (`/goal` etc.) it runs unattended; without one, just paste and send.
+
+→ [SKILL.md](./leader/SKILL.md)
+
+</td></tr>
+</table>
 
 <table>
 <tr><td>
