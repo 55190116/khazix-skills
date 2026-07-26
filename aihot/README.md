@@ -13,7 +13,7 @@
 
 ## 手动安装
 
-以下 Bash 命令适用于 macOS、Linux 与 WSL。Windows 原生环境优先把“推荐安装”提示发给 Agent，不要把 Bash 命令直接粘贴到 PowerShell。脚本不会猜测平台，必须显式指定 `--target` 或 `--dir`，无参数只显示帮助并退出。
+以下 Bash 命令适用于 macOS、Linux 与 WSL。Windows 原生环境请让当前 Agent 按本页说明安装，不要把 Bash 命令直接粘贴到 PowerShell。脚本不会猜测平台，必须显式指定 `--target` 或 `--dir`，无参数只显示帮助并退出。
 
 Codex、Gemini CLI、GitHub Copilot 和 OpenCode 共享 Agent Skills 通用目录 `~/.agents/skills/aihot`：
 
