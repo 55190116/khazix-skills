@@ -1,4 +1,4 @@
-# AI HOT v1 API 参考
+# AIHOT v1 API 参考
 
 只在需要完整参数、字段、分页或构建客户端时读取本文件。普通资讯问答优先遵循 `SKILL.md` 的默认路由。
 
@@ -114,7 +114,7 @@ GET /api/v1/dailies/2026-07-24
 ### 正文与周期报告边界
 
 - `items` 只返回标题、摘要、来源、时间、评分和链接，不返回正文，也没有 `/api/v1/items/{id}`。用户要深入阅读时提供 `links.aihot` 和 `links.original`，不要抓网页或全文 RSS 冒充单篇正文 API。
-- AI HOT 编辑成品周报与月报目前只有 `/weekly` 和 `/monthly` 网页，没有 v1、Skill 或 RSS 端点。“最近一周精选”仍是滚动 7 天 items 查询，不得称为正式周报。
+- AIHOT 编辑成品周报与月报目前只有 `/weekly` 和 `/monthly` 网页，没有 v1、Skill 或 RSS 端点。“最近一周精选”仍是滚动 7 天 items 查询，不得称为正式周报。
 
 ### 完整精选同步
 
@@ -152,11 +152,11 @@ snapshot 是**分页**的，一次请求拿不到全部：
 
 ## 字段语义
 
-- `links.aihot`：AI HOT 站内中文阅读页，默认主链接。
+- `links.aihot`：AIHOT 站内中文阅读页，默认主链接。
 - `links.original`：第三方原文，仅在用户要出处时附加。
 - `originalTitle`：来源原标题，可能不是英文。
 - `publishedAt`：第三方原文发布时间。展示前把 ISO 时间转换到 `Asia/Shanghai`。
-- `discoveredAt`：AI HOT 首次收到时间。`publishedAt` 为空时可回退使用，但必须标为“AI HOT 收录时间”。
+- `discoveredAt`：AIHOT 首次收到时间。`publishedAt` 为空时可回退使用，但必须标为“AIHOT 收录时间”。
 - `score`：0—100 总分，可能为空，不表示当前响应按它排序。
 - `selected`：是否属于当前精选。
 - `category`：允许未来增加新值；不要把未知值当成响应损坏。
