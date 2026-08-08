@@ -4,6 +4,8 @@
 
 基础能力长期保持匿名、只读、无需 API Key。Skill 1.x 使用稳定的 `/api/v1/*` 契约；后端抓取、评分、排序、缓存和模型可以继续迭代，用户无需因此更新 Skill。
 
+> **必须升级（所有低于 1.4.0 的版本）：**旧版 Skill 可能错误地告诉你「公开商业产品只需署名」，这项通用许可已经失效。Skill 1.4.0 同步公开使用规则 1.0：个人非商业、公益非商业和组织内部使用免费；任何面向外部的商业产品、收费服务、客户交付、代理接口、数据转售、公开镜像或批量公开再分发，须事先取得书面授权。请按下方更新步骤原子替换原目录，并开启新会话。
+
 ## 安装前可审阅
 
 - [SKILL.md](https://aihot.virxact.com/aihot-skill/SKILL.md)
@@ -63,7 +65,7 @@ references/errors.md
 ~/.config/opencode/skills/aihot
 ```
 
-发现旧副本时默认停止，不会静默覆盖或再造一份。确认这些目录都是应被新 1.0 包替换的旧 AI HOT Skill 后，显式迁移：
+发现旧副本时默认停止，不会静默覆盖或再造一份。确认这些目录都是应被当前 1.x 包替换的旧 AI HOT Skill 后，显式迁移：
 
 ```bash
 bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) \
@@ -107,9 +109,10 @@ bash <(curl -fsSL https://aihot.virxact.com/aihot-skill/install.sh) \
 ## 内容、许可与署名
 
 - `LICENSE` 中的 MIT License 只覆盖 Skill 指令与随附文件。
-- API 数据适用 [AI HOT 公开接入条款](https://aihot.virxact.com/terms)。
+- AI HOT 服务与数据输出适用 [AI HOT 公开使用规则](https://aihot.virxact.com/terms)。匿名、无需 API Key 只说明技术访问方式，不代表所有用途均获许可。
 - 第三方原文及全文版权仍归原作者，不因经过 AI HOT 而改变。
-- 公开产品只需在页面底部、关于页或数据来源页等正常可发现的位置标注一次「数据来源：AI HOT」并链接本站，无需逐条署名；私人自用或仅内部使用无需界面署名。attribution 与 canonical 继续用于机器识别和追溯；重要引用回第三方原文核对。
+- 个人非商业、公益非商业和组织内部使用免费。面向外部的商业产品、收费服务、客户交付、代理接口、数据转售、公开镜像、批量公开再分发或对外模型产品须先取得书面授权；仅标注「数据来源：AI HOT」不构成授权。
+- 商业授权联系 `wzglyay@virxact.com`。attribution 与 canonical 继续用于机器识别和追溯；重要引用回第三方原文核对。
 
 详细接入文档：[aihot.virxact.com/agent](https://aihot.virxact.com/agent)
 
